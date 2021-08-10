@@ -1,0 +1,24 @@
+type Card {
+  id: ID! @id
+  title: String
+  columns: [Column!]!
+    @relationship(
+      type: "IN_COLUMN",
+      direction: OUT,
+      properties: "InColumnRelationship"
+    )
+}
+
+type Column {
+  id: ID! @id
+  cards: [Card!]!
+    @relationship(
+      type: "IN_COLUMN",
+      direction: IN,
+      properties: "InColumnRelationship"
+    )
+}
+
+interface InColumnRelationship {
+  position: Int!
+}

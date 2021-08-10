@@ -1,0 +1,19 @@
+{
+  "name": "feature-request-union-relationship-sorting",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "license": "MIT",
+  "author": "Jan-Gerke Salomon",
+  "dependencies": {
+    "@neo4j/graphql": "^2.0.0",
+    "apollo-server-express": "^2",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "graphql": "^15.5.1",
+    "neo4j-driver": "^4.3.2"
+  },
+  "scripts": {
+    "start:with-union": "node src/index.js --with-union",
+    "start:without-union": "node src/index.js"
+  }
+}

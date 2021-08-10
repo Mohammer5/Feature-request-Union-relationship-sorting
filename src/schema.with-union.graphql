@@ -1,0 +1,37 @@
+type Note {
+  id: ID!
+  content: String!
+  columns: [Column!]!
+    @relationship(
+      type: "IN_COLUMN",
+      direction: OUT,
+      properties: "InColumnRelationship"
+    )
+}
+
+type Card {
+  id: ID! @id
+  title: String
+  columns: [Column!]!
+    @relationship(
+      type: "IN_COLUMN",
+      direction: OUT,
+      properties: "InColumnRelationship"
+    )
+}
+
+union ColumnContent = Note | Card
+
+type Column {
+  id: ID! @id
+  contents: [ColumnContent]!
+    @relationship(
+      type: "IN_COLUMN",
+      direction: IN,
+      properties: "InColumnRelationship"
+    )
+}
+
+interface InColumnRelationship {
+  position: Int!
+}
